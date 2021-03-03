@@ -1,0 +1,66 @@
+/**************************
+       * main method to test card
+       **************************/
+      Card card1, card2, card3, card4, card5;
+      card1 = new Card();
+      
+      card2 = new Card('2', Suit.hearts);
+      card3 = new Card();
+      card4 = new Card();
+      card5 = new Card();
+      card1.set('A', Suit.diamonds);
+      card3.set('3',  Suit.spades);
+      card4.set('4',  Suit.diamonds);
+      card5.set('5', Suit.clubs);
+      
+      String outPut;
+      
+      outPut = card1.toString() + ", "
+      + card2.toString() + ", "
+            + card3.toString() + ", "
+      + card4.toString();
+      System.out.println(outPut);
+      
+      /**************************
+       * main method to test hand
+       **************************/
+      Hand playerHand = new Hand();
+      playerHand.takeCard(card1);
+      playerHand.takeCard(card2);
+      playerHand.takeCard(card3);
+      playerHand.takeCard(card4);
+      int tempInt = playerHand.getNumCards();
+      System.out.println("Number of cards: " + tempInt);
+      System.out.println(playerHand.toString());
+      
+      Card playedCard = new Card();
+      playedCard = playerHand.playCard();
+      System.out.println("I will play... THIS! " + playedCard.toString());
+      System.out.println("After I play this card...");
+      System.out.println(playerHand.toString());
+      
+      System.out.println("After I take card 5...");
+      playerHand.takeCard(card5);
+      System.out.println(playerHand.toString());
+      
+      System.out.println("After I reset the hand...");
+      playerHand.resetHand();
+      System.out.println(playerHand.toString());
+      
+      /**************************
+       * main method to test deck
+       **************************/
+      Deck firstDeck = new Deck();
+      String second;
+      
+      firstDeck.reorder();
+      second = firstDeck.toString();
+      System.out.println(second);
+      
+      Card topCard = new Card();
+      topCard = firstDeck.getTopCard();
+      System.out.println("The top card was: " + topCard.toString() + ". WOW!");
+      
+      System.out.println("Number of cards: " + firstDeck.getNumCards());
+      
+      

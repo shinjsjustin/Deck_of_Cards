@@ -1,0 +1,71 @@
+      Deck playerDeck = new Deck();
+      
+      Scanner keyboard = new Scanner(System.in);
+      int numPlayers = 0;
+      System.out.println("How many players? ");
+      if(keyboard.hasNextInt())
+      {
+         numPlayers = keyboard.nextInt();
+         keyboard.hasNextLine();
+      }
+      else
+      {
+         System.out.println("Please enter a number.");
+      }
+      keyboard.close();
+      //Up to here is fine... problems below
+      
+      Hand[] playerArray = new Hand[numPlayers];
+      for(int m=0; m<numPlayers; m++)
+      {
+         playerArray[m] = new Hand();
+      }
+      
+      
+      while(playerDeck.getNumCards()>0)
+      {
+         for(int i=0; i<numPlayers; i++)
+         {
+            playerArray[i].takeCard(playerDeck.getTopCard());
+         }
+      }
+      
+      for(int j=0; j<numPlayers; j++)
+      {
+         playerArray[j].toString();
+      }
+
+
+
+
+
+
+      Deck firstDeck = new Deck(2);
+      
+      System.out.println(firstDeck.toString());
+      
+      System.out.println("Total: " + firstDeck.getNumCards());
+      
+      System.out.println("Packs: " + firstDeck.getNumPacks());
+      
+      while(firstDeck.getNumCards()>0)
+      {
+         System.out.println(firstDeck.getTopCard().toString());
+      }
+      System.out.println(firstDeck.toString());
+      
+      firstDeck.restock(3);
+      
+      System.out.println(firstDeck.toString());
+      
+      System.out.println("Total: " + firstDeck.getNumCards());
+      
+      System.out.println("Pack: " + firstDeck.getNumPacks());
+      
+      firstDeck.shuffle();
+      
+      System.out.println(firstDeck.toString());
+      
+      System.out.println("Total: " + firstDeck.getNumCards());
+      
+      System.out.println("Pack: " + firstDeck.getNumPacks());
